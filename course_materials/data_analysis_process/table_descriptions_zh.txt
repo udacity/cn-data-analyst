@@ -1,0 +1,85 @@
+﻿enrollments.csv:
+
+关于数据分析纳米学位的学员完成第一个项目的随机子集和没有完成第一个项目的随机子集的数据。	
+
+字段：
+   - account_key:   注册的学员账号的唯一标识符。
+
+    - status:   当时收集的学员注册状态的数据,可能的值是‘取消’和‘在学习’。
+
+    - join_date:  学员注册的时间。
+
+    - cancel_date:    学员取消的时间,如果学员没有取消就显示空。
+
+    - days_to_cancel: 加入时间和取消时间之间间隔的天数，如果学员没有取消就显示空。
+
+    - is_udacity:  如果是优达学城的测试账号就显示True,如果不是显示False。
+
+    - is_canceled:    如果当时收集的数据是学员已经取消学习就显示True，如果不是显示False。
+
+-------------------------------------------------------------------------------
+
+daily_engagement.csv:
+
+关于数据分析纳米学位在报名注册表中每一天报名注册的学生的日常参与学习数据。这里面包括即使哪一天没有参与学习的记录，纳米学位的支持课程的参与学习数据和相应的免费可以上的具有相同内容的课程的参与学习数据。
+
+字段：
+    - acct:                 学生账号的唯一标识符，这是他们参与学习的数据。
+
+    - utc_date:             收集数据的日期。
+
+    - num_courses_visited:   这一天里在2分钟时间内数据分析纳米学位课程被学生访问次数。纳米学位课程和免费的可以上的有相同内容的课程分别被计算。
+
+    - total_minutes_visited: 在这一天学生上数据分析纳米学位课程花费的总分钟数。
+
+    - lessons_completed:     在这一天里数据分析纳米学位课程被学生访问的课程总数。
+                         
+    - projects_completed:    在这一天里数据分析纳米学位中学生完成的项目总数。
+
+-------------------------------------------------------------------------------
+
+project_submissions.csv:
+
+关于在报名注册表中的每个学生提交数据分析纳米学位项目的数据。
+
+字段:
+    - creation_date:    项目提交的日期。
+
+    - completion_date:  项目被评估的日期。
+
+    - assigned_rating:  这个字段有4个可能的值:
+                        blank - 项目没有被评估。
+                        INCOMPLETE - 项目不符合规范。
+                        PASSED - 项目符合规范。
+                        DISTINCTION – 项目超出规范。
+                        UNGRADED – 项目无法被评估。（例如：包括损坏的文件）
+                                    
+    - account_key:      提交了该项目的学生账号的唯一标识符。
+
+- lesson_key:       提交了项目的唯一标识符。
+
+    - processing_state: 这个字段可能有2个可能的值:
+                        CREATED - 项目已提交但没有被评估。
+                        EVALUATED – 项目已经被评估。
+
+-------------------------------------------------------------------------------
+
+daily_engagement_full.csv:
+
+与daily_engagement.csv类似，但是进一步细分课程和更多可以用的字段。这个文件大概是500M,但是daily_engagement.csv文件比较小的原因。这个数据集是可选项，不是完成课程的必选项。
+
+除了下面的这些字段，这个文件包括与daily_engagement.csv中的所有字段，但是用has_visited代替了num_courses_visited。
+
+字段:
+    - registration_date:  账号的注册时间。
+
+    - subscription_start: 账号开始付费的时间。
+
+    - course_key:         在课程的活跃记录。
+
+    - sibling_key:        和course_key相同目录的免费课程。如果course_key是免费课程，course_key和sibling_key 是一样。
+
+    - course_title:       课程名称。
+
+    - has_visited:        在这一天如果学生访问课程至少2分钟则是1。
+
