@@ -42,7 +42,7 @@ Columns:
     - utc_date:              The date for which the data was collected.
 
     - num_courses_visited:   The total number of Data Analyst Nanodegree courses
-                             the student visited for at 2 minutes on this day.
+                             the student visited for at least 2 minutes on this day.
                              Nanodegree courses and freely available courses
                              with the same content are counted separately.
 
